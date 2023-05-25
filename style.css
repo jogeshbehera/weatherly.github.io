@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins,Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #a9c9ff;
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 0.4%, rgb(32, 38, 57)100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+nav {
+    margin: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+}
+
+nav img{
+    display: relative;
+    height: 225px;
+    width: 225px;
+    transform: translate(0px, -110px);
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    text-transform: uppercase;
+    margin: 0px 20px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a:hover{
+    color: orange;
+}
+
+.container {
+    margin: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container p:first-of-type{
+    font-size: 50px;
+}
+
+p:nth-child(2){
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search {
+    margin: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.search input{
+    border: 2px solid #dadada;
+    font-size: 17px;
+    border-radius: 7px;
+    height: 40px;
+    width: 200px;
+    padding: 10px;
+    letter-spacing: 0;
+    background-color: transparent;
+}
+
+.search input:focus:valid  { 
+    outline: none;
+    border-color: #dadada;
+    box-shadow: 0 0 10px #dadada;
+    background-color: aliceblue;
+}
+
+.search button{
+    margin-left: 5px;
+    border: 0;
+    border-radius: 7px;
+    height: 40px;
+    letter-spacing: 0px;
+    width: 80px;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #4CB8C4 0%, #3CD3AD  51%, #4CB8C4  100%);
+    color: white;
+    transform: translate(0 , -2px);
+}
+
+.search button:hover{
+    background-position: right center;
+    outline: none;
+    box-shadow: 0 0 10px #4CB8C4;
+  }
+
+.output  {
+    margin: 10px 30%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    color: azure;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+#city_name{
+    font-size: 40px;
+}
+
+#region, #country{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#country{
+    margin-left: 10px;
+}
+
+#other-info{
+    margin-top: 10px;
+}
+
+#image{
+    height: 40px;
+    padding: 30px 10%;
+}
