@@ -9,24 +9,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <header id="home">
+        <nav>
             <img src="logo.png" alt="logo">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
         </ul>
-    </nav>
+        </nav>
     
-    <div class="container">
+    <section class="container">
         <p>LIVE WEATHER APP</p>
         <P>get the lastest weather report of any location</P>
         <div class="search">
             <input type="text" name="city" id="city" placeholder="Enter Location">
             <button>Search</button>
         </div>
-    </div>
+    </section>
 
-    <div class="output">
+    <section class="output">
         <div id="info">
             <div id="main-info">
                 <h3 id="city_name"></h3>
@@ -44,7 +45,12 @@
         <div id="image">
             <img id="img" src="" alt="logo">
         </div>
-    </div>
+    </section>
+    </header>
+
+    <section class="about">
+
+    </section>
     
     <script src="script.js"></script>
 
