@@ -1,58 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header id="home">
-        <nav>
-            <img src="logo.png" alt="logo">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about-us">About Us</a></li>
-        </ul>
-        </nav>
-    
-    <section class="container">
-        <p>LIVE WEATHER APP</p>
-        <P>get the lastest weather report of any location</P>
-        <div class="search">
-            <input type="text" name="city" id="city" placeholder="Enter Location">
-            <button>Search</button>
-        </div>
-    </section>
 
-    <section class="output">
-        <div id="info">
-            <div id="main-info">
-                <h3 id="city_name"></h3>
-                <div><span id="region"></span> <span id="country"></span></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+    <header>
+        <nav id="home">
+            <div class="brand-name">
+                <img src="/images/logo.png" alt="logo" />
+                <p>Weatherly</p>
             </div>
-            <div id="other-info">
-                <div>Temp : <span id="temp_c"></span>° c</div>
-                <div>Feels like : <span id="feelslike_c"></span>° c</div>
-                <div>Wind speed : <span id="wind_kph"></span> kph</div>
-                <div>Humidity : <span id="humidity"></span></div>
-                <div>Clouds : <span id="cloud"></span></div>
-            </div>
-        </div>
-        
-        <div id="image">
-            <img id="img" src="" alt="logo">
-        </div>
-    </section>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="about">
+    <main>
+        <!-- Search location -->
+        <section class="input-container">
+            <p>LIVE WEATHER APP</p>
+            <p class="light-text">get the lastest weather report of any location</p>
+            <form class="search">
+                <input type="text" name="city" id="city" placeholder="Enter Location" />
+                <button>Search</button>
+            </form>
+        </section>
 
-    </section>
-    
+        <!-- output of search -->
+        <section id="output_container" class="display_none">
+
+            <!-- Current Temp -->
+            <div id="main-info">
+                <div id="main-info-upper">
+                    <img id="weatherlogo" src="" alt="logo" />
+                    <div id="curr_temp"></div><sup>&deg;c</sup>
+                </div>
+                <div id="main-info-lower" class="light-text">
+                    <div id="curr_text"></div>
+                    <div>.</div>
+                    <div id="min-max">
+                        <span id="min"></span><span> / </span><span id="max"> </span><sup>&deg;c</sup>
+                    </div>
+                </div>
+                <div id="location" class="light-text">
+                    <span id="city_name"></span> .
+                    <span id="region"></span> .
+                    <span id="country"></span>
+                </div>
+            </div>
+
+            <!-- Hourly Forcast -->
+            <div class="forecast-container">
+                <p>Today's at</p>
+                <div id="curr_forecast" class="forecasts">
+                </div>
+            </div>
+
+            <!-- Other Details -->
+            <div class="other-details">
+                <p>Today's Highlights</p>
+                <div class="details">
+                    <div class="container">
+                        <p class="light-text">Feels Like</p>
+                        <div>
+                            <img src="images/thermometer.png" alt="thermometer logo" />
+                            <div>
+                                <span id="feels_like" style="font-size: 18px;"></span>
+                                <sup>&deg;c</sup>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">Humidity</p>
+                        <div>
+                            <img src="images/humidity.png" alt="humidity logo" />
+                            <div>
+                                <span id="humidity"></span>
+                                %
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">Wind Speed</p>
+                        <div>
+                            <img src="images/wind.png" alt="wind speed logo" />
+                            <div>
+                                <span id="wind_speed"></span>
+                                Kph
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">Pressure</p>
+                        <div>
+                            <img src="images/barometer.png" alt="barometer logo" />
+                            <div>
+                                <span id="pressure"></span>
+                                mb
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">Sunrise</p>
+                        <div>
+                            <img src="images/sunrise.png" alt="sunrise logo" style="height: 30px" />
+                            <div id="sunrise"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">Sunset</p>
+                        <div>
+                            <img src="images/sunset.png" alt="sunset logo" style="height: 33px" />
+                            <div id="sunset"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Quality Index -->
+            <div class="air-quality-index">
+                <p>Air Quality Index</p>
+                <div class="air-quality-details">
+                    <div class="container">
+                        <p class="light-text">PM 2.5</p>
+                        <div id="pm2_5"></div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">PM 10</p>
+                        <div id="pm_10"></div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">CO</p>
+                        <div id="co"></div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">NO2</p>
+                        <div id="no2"></div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">O3</p>
+                        <div id="o3"></div>
+                    </div>
+                    <div class="container">
+                        <p class="light-text">SO2</p>
+                        <div id="so2"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Tomorrow's Forecast -->
+            <div class="forecast-container">
+                <p>Tomorrow's at</p>
+                <div id="tom_forecast" class="forecasts">
+
+                </div>
+            </div>
+
+            <!-- Day After Tomorrow -->
+            <div class="forecast-container">
+                <p>Day After Tomorrow's at</p>
+                <div id="day_after_tomorrow_forecast" class="forecasts">
+
+                </div>
+            </div>
+        </section>
+
+        <section id="data_not_found" class="display_none">
+            Data not found.
+        </section>
+    </main>
+
+    <footer id="about">
+        <h1>About</h1>
+        <p>Hello, I am Jogesh Behera, a Computer Science and Engineering student
+            pursuing my education at Trident Academy of Technology.
+            As part of my academic journey in the 7th semester, I am working on an exciting project -
+            a Weather website. This project serves as a minor project that aligns with my coursework and provides
+            an opportunity to apply the knowledge and skills acquired during my studies.
+            The purpose of the weather website is to provide users with accurate and real-time weather information.
+            From temperature and humidity to wind speed and air quality, the website aims to deliver a comprehensive
+            weather forecast to keep users informed and prepared for their day.</p>
+    </footer>
+
     <script src="script.js"></script>
-
 </body>
+
 </html>
